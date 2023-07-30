@@ -1,6 +1,7 @@
 import { useGetBooksQuery } from "../redux/api/bookapi";
 import { IBook } from "../type/booktype";
 import bookImage from "../images/Fiction-Book-Covers.webp"
+import { Link } from "react-router-dom";
 const Books = () => {
     const { data, isLoading, error } = useGetBooksQuery(undefined);
 
@@ -26,8 +27,10 @@ const Books = () => {
   <div className="card-body">
                   <h2 className="card-title">{book.Title}</h2>
    
-    <div className="card-actions justify-end">
-      <button className="btn btn-primary">Details</button>
+                  <div className="card-actions justify-end">
+                        <Link to={`/book/${book._id}`} >
+                      <button className="btn btn-primary">Details</button>
+                      </Link>
     </div>
   </div>
 </div>

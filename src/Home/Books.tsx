@@ -12,13 +12,19 @@ const Books = () => {
     if (isLoading) {
         return <div>Loading...</div>;
     }
+  if (!data || data.length === 0) {
+        return <div>No books available.</div>;
+    }
 
+   
+    const books = [...data].reverse();
 
+  
   return (
     <div className="mt-10">
       <h1 className="text-center text-3xl my-6 ">Books Collection</h1>
         <div className="grid grid-cols-3 gap-2">
-            {data.slice().reverse().slice(0, 10).map((book: IBook ) => (
+            {books.slice(0, 10).map((book: IBook ) => (
                
                     
             

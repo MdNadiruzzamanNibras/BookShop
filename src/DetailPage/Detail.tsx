@@ -8,7 +8,7 @@ const Detail = () => {
     if (isLoading) {
         return <div>Loading...</div>;
     }
-    console.log(data);
+   
     return (
         <div className="flex  justify-center align-middle">
             <div >

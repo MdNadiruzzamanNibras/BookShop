@@ -7,7 +7,9 @@ const AllBooks = () => {
     if (isLoading) {
         return <div>Loading...</div>;
     }
-
+if (!data || data.length === 0) {
+        return <div>No books available. The sever is crash</div>;
+    }
     console.log(data);
     console.log(error);
     return (
@@ -24,7 +26,7 @@ const AllBooks = () => {
       </tr>
     </thead> 
                 <tbody>
-                    {data.map((book: IBook, index:number)=>
+                    {data?.map((book: IBook, index:number)=>
                     <tr key={book._id}>
                         <th>{ index+1}</th> 
                             <td>{ book.Title}</td> 

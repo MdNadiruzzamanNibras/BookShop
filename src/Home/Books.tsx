@@ -13,7 +13,7 @@ const Books = () => {
         return <div>Loading...</div>;
     }
   if (!data || data.length === 0) {
-        return <div>No books available.</div>;
+        return <div>No books available. The sever is crash</div>;
     }
 
    

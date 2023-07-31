@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Books = () => {
     const { data, isLoading, error } = useGetBooksQuery(undefined);
 
-    console.log(data);
+
     console.log(isLoading);
     console.log(error);
 

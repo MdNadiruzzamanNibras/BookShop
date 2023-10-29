@@ -21,8 +21,8 @@ const Detail = () => {
                 <h3 className="text-xl font-bold">Author: {data.Author}</h3>
                 <h5>Genre: { data.Genre}</h5>
                 <h5>Publication Date: {data.PublicationDate}</h5>
-                <p >{ data.Description
-                    }</p>
+                <p className="w-96">{data.Description}</p>
+
                      </div>
             </div>
         </div>

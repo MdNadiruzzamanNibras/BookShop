@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import { useGetBooksQuery } from "../redux/api/bookapi";
 import { IBook } from "../type/booktype";
-import bookImage from "../images/Fiction-Book-Covers.webp"
-import { Link } from "react-router-dom";
+
+// import { Link } from "react-router-dom";
 const Books = () => {
     const { data, isLoading, error } = useGetBooksQuery(undefined);
 
@@ -13,7 +14,8 @@ const Books = () => {
         return <div>Loading...</div>;
     }
   if (!data || data.length === 0) {
-        return <div>No books available. The sever is crash</div>;
+    return isLoading
+      
     }
 
    
@@ -23,27 +25,44 @@ const Books = () => {
   return (
     <div className="mt-10">
       <h1 className="text-center text-3xl my-6 ">Books Collection</h1>
-        <div className="grid grid-cols-3 gap-2">
-            {books.slice(0, 10).map((book: IBook ) => (
-               
-                    
-            
-                     <div  key={book._id} className="card card-compact w-60 bg-base-100 shadow-xl mx-auto my-12">
-  <figure style={{height:'300px'}}><img  src={bookImage} alt="Shoes" /></figure>
-  <div className="card-body">
-                  <h2 className="card-title">{book.Title}</h2>
-   
-                  <div className="card-actions justify-end">
-                        <Link to={`/book/${book._id}`} >
-                      <button className="btn btn-primary">Details</button>
-                      </Link>
-    </div>
-  </div>
-</div>
+        <div className="overflow-x-auto">
+  <table className="table">
+    {/* head */}
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Publication Date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {/* row 1 */}
+            {
+              books.slice(0, 10).map((book:IBook, index) =>
+              
+               <tr key={book._id}>
+                  <th>{index + 1 }</th>
+                  <td>{book.Title }</td>
+                  <td>{book.Author }</td>
+                  <td>{book.Genre }</td>
+                  <td>{book.PublicationDate}</td>
                   
-               
-            ))}
-        </div>
+                  <Link to={`/book/${book._id}`} >
+                    <td>  <button className="btn btn-primary">Details</button></td>
+                      </Link>
+        
+      </tr>
+              
+              )
+     }
+      
+      
+    </tbody>
+  </table>
+</div>
       </div>
     );
 };

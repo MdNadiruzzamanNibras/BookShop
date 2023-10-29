@@ -10,6 +10,13 @@ export const bookapi = createApi({
         singleBook: builder.query({
             query: (id)=>`/book/${id}`
         }),
+        review: builder.mutation({
+            query: ({id, data}) => ({
+                url: `review/${id}`,
+                method: 'POST',
+                body:data
+            })
+        })
     }), 
 });
 

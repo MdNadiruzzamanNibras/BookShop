@@ -13,7 +13,10 @@ if (!data || data.length === 0) {
     console.log(data);
     console.log(error);
     return (
-        <div className="overflow-x-auto">
+      <div className="container mx-auto">
+        <div>
+         
+           <div className="overflow-x-auto">
   <table className="table table-xs">
     <thead>
       <tr>
@@ -41,6 +44,8 @@ if (!data || data.length === 0) {
       </tbody>
   </table>
 </div>
+        </div>
+       </div>
     );
 };
 

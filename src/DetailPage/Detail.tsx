@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import { useSingleBookQuery } from "../redux/api/bookapi";
 import bookImage from "../images/Fiction-Book-Covers.webp"
+import ReviewDetail from "../Component/ReviewDetail";
 
 const Detail = () => {
     const { id } = useParams();
@@ -10,7 +11,9 @@ const Detail = () => {
     }
    
     return (
-        <div className="flex  justify-center align-middle">
+        <div className="container mx-auto">
+            <div>
+                 <div className="flex  justify-center align-middle">
             <div >
                 <img className="h-80" src={bookImage} alt="" />
             </div>
@@ -26,6 +29,9 @@ const Detail = () => {
                      </div>
             </div>
         </div>
+            </div>
+            <ReviewDetail id={ data._id} />
+       </div>
     );
 };
 

@@ -7,7 +7,7 @@ interface IProps {
 }
 const ReviewDetail = ({ id }: IProps) => {
     const [inputValue, setInputValue] = useState<string>('');
-    const {data, isLoading} = useGetReviewQuery(id)
+    const {data, isLoading} = useGetReviewQuery(id, {refetchOnMountOrArgChange:true, pollingInterval:30000})
    const [review, {isError}] =  useReviewMutation()
 
 console.log(id);
@@ -35,7 +35,7 @@ console.log(id);
           <div className="max-w-7xl mx-auto mt-5">
       <form className="flex gap-5 items-center" onSubmit={handleSubmit}>
         <textarea
-          className="min-h-[30px] border-2 border-black"
+          className="min-h-[30px] w-full border-2 border-black"
           onChange={handleChange}
           value={inputValue}
         />

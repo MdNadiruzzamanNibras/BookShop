@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useGetBooksQuery } from "../redux/api/bookapi";
 import { IBook } from "../type/booktype";
 
@@ -24,7 +25,8 @@ if (!data || data.length === 0) {
         <th>Title</th> 
         <th>Author</th> 
         <th>Genre</th> 
-        <th>PublicationDate</th> 
+                  <th>PublicationDate</th> 
+                  <th></th>
         
       </tr>
     </thead> 
@@ -35,7 +37,10 @@ if (!data || data.length === 0) {
                             <td>{ book.Title}</td> 
                             <td>{ book.Author}</td> 
                             <td>{ book.Genre}</td> 
-                            <td>{book.PublicationDate }</td> 
+                        <td>{book.PublicationDate}</td> 
+                         <Link to={`/book/${book._id}`} >
+                    <td>  <button className="btn btn-primary">Details</button></td>
+                      </Link>
         
       </tr>
                     

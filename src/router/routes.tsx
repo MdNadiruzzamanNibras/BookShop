@@ -5,6 +5,7 @@ import Detail from "../DetailPage/Detail";
 import AllBooks from "../AllBookPage/AllBooks";
 import Login from "../Login/Login";
 import Registration from "../Login/Registration";
+import AddBook from "../AddNewBook.tsx/AddBook";
 
 
 export const router = createBrowserRouter([
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: "/allBook",
         element:<AllBooks/>
+      },
+      {
+        path: "/AddBook",
+        element:<AddBook/>
       },
     ]
   },

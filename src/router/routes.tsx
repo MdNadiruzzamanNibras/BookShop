@@ -29,9 +29,7 @@ export const router = createBrowserRouter([
         path: "/AddBook",
         element:<AddBook/>
       },
-    ]
-  },
-  {
+      {
     path: "/login",
     element:<Login/>
   },
@@ -39,6 +37,9 @@ export const router = createBrowserRouter([
     path: "/signup",
     element:<Registration/>
   },
+    ]
+  },
+  
   {
     path:"*"
   }

@@ -19,6 +19,14 @@ export const bookapi = createApi({
             }),
             invalidatesTags:['reviews']
         }),
+        bookAdd: builder.mutation({
+            query: (data) => ({
+                url: 'addnew',
+                method: 'POST',
+                body:data
+            }),
+            invalidatesTags:['reviews']
+        }),
         getReview: builder.query({
             query: (id) => `/review/${id}`,
             providesTags:['reviews']
@@ -28,4 +36,4 @@ export const bookapi = createApi({
 });
 
 
-export const {useGetBooksQuery, useSingleBookQuery, useGetReviewQuery, useReviewMutation} = bookapi
+export const {useGetBooksQuery, useSingleBookQuery, useGetReviewQuery, useReviewMutation, useBookAddMutation} = bookapi

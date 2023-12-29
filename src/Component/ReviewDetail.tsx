@@ -21,7 +21,7 @@ console.log(id);
     setInputValue('');
   };
 
-  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
     if (isLoading) {
@@ -32,20 +32,22 @@ console.log(id);
         <p>some wrong</p>
     }
     return (
-          <div className="max-w-7xl mx-auto mt-5">
-      <form className="flex gap-5 items-center" onSubmit={handleSubmit}>
-        <textarea
-          className="min-h-[30px] w-full border-2 border-black"
+          <div className="container mx-auto mt-5">
+        <div className="lg:ml-72">
+          <form className="flex  items-center" onSubmit={handleSubmit}>
+        <input
+          className=" w-[500px] border-2 border-black"
           onChange={handleChange}
           value={inputValue}
         />
         <button
           type="submit"
-          className="rounded-full h-10 w-10 p-2 text-[25px]"
+          className="rounded-full  w-10 p-2 text-xl"
         >
          submit
         </button>
       </form>
+      </div>
       <div className="mt-10">
         {data?.reviews?.map((r:{ review: string }, index:number) => (
           <div key={index} className="flex gap-3 items-center mb-5">
@@ -54,7 +56,9 @@ console.log(id);
       
     </div>
   </div>
-            <p>{r?.review}</p>
+            <div className="lg:ml-72">
+               <p>{r?.review}</p>
+           </div>
           </div>
         ))}
       </div>

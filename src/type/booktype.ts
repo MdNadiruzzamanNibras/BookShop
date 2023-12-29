@@ -5,6 +5,6 @@ export interface IBook{
     Title: string,
     Description?: string,
     PublicationDate:string
-
+     authorEmail?:string
 
 }

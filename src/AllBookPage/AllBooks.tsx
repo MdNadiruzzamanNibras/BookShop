@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { useGetBooksQuery } from "../redux/api/bookapi";
 import { IBook } from "../type/booktype";
-
+import Loading from "../Loading/Loading"
 
 const AllBooks = () => {
     const { data, isLoading, error } = useGetBooksQuery(undefined);
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <Loading/>
     }
 if (!data || data.length === 0) {
         return <div>No books available. The sever is crash</div>;

@@ -6,6 +6,7 @@ import AllBooks from "../AllBookPage/AllBooks";
 import Login from "../Login/Login";
 import Registration from "../Login/Registration";
 import AddBook from "../AddNewBook.tsx/AddBook";
+import WishList from "../wishlist/WishList";
 
 
 export const router = createBrowserRouter([
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: "/AddBook",
         element:<AddBook/>
+      },
+      {
+        path: "/wish",
+        element:<WishList/>
       },
       {
     path: "/login",

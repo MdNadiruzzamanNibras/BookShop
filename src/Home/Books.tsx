@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useGetBooksQuery } from "../redux/api/bookapi";
 import { IBook } from "../type/booktype";
+import { useAppDispatch } from "../redux/hooks";
+import { addToWish } from "../redux/wishlist/wishslice";
 
 // import { Link } from "react-router-dom";
 const Books = () => {
@@ -17,7 +19,8 @@ const Books = () => {
     return isLoading
       
     }
-
+   // eslint-disable-next-line react-hooks/rules-of-hooks
+   const dispatch = useAppDispatch()
    
     const books = [...data].reverse();
 
@@ -53,7 +56,7 @@ const Books = () => {
                   <Link to={`/book/${book._id}`} >
                      <button className="btn btn-primary">Details</button>
                     </Link>
-                    <button className="text-xs ml-2 px-2 py-1 rounded-full">add to wishlist</button>
+                    <button onClick={()=>dispatch(addToWish(book))} className="text-xs ml-2 px-2 py-1 rounded-full">add to wishlist</button>
                     </td>
         
       </tr>

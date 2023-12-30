@@ -49,10 +49,12 @@ const Books = () => {
                   <td>{book.Author }</td>
                   <td>{book.Genre }</td>
                   <td>{book.PublicationDate}</td>
-                  
+                   <td>
                   <Link to={`/book/${book._id}`} >
-                    <td>  <button className="btn btn-primary">Details</button></td>
-                      </Link>
+                     <button className="btn btn-primary">Details</button>
+                    </Link>
+                    <button className="text-xs ml-2 px-2 py-1 rounded-full">add to wishlist</button>
+                    </td>
         
       </tr>
               

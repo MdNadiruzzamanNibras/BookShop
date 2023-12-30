@@ -2,12 +2,16 @@ import { Link } from "react-router-dom";
 import { useGetBooksQuery } from "../redux/api/bookapi";
 import { IBook } from "../type/booktype";
 import Loading from "../Loading/Loading"
+import { useAppDispatch } from "../redux/hooks";
+import { addToWish } from "../redux/wishlist/wishslice";
 
 const AllBooks = () => {
     const { data, isLoading, error } = useGetBooksQuery(undefined);
     if (isLoading) {
         return <Loading/>
-    }
+  }
+   // eslint-disable-next-line react-hooks/rules-of-hooks
+   const dispatch = useAppDispatch()
 if (!data || data.length === 0) {
         return <div>No books available. The sever is crash</div>;
     }
@@ -38,10 +42,12 @@ if (!data || data.length === 0) {
                             <td>{ book.Author}</td> 
                             <td>{ book.Genre}</td> 
                         <td>{book.PublicationDate}</td> 
+                        <td>
                          <Link to={`/book/${book._id}`} >
-                    <td>  <button className="btn btn-primary">Details</button></td>
+                            <button className="btn btn-primary">Details</button>
+                          
                       </Link>
-        
+                          <button onClick={()=>dispatch(addToWish(book))} className="text-xs ml-2 px-2 py-1 rounded-full">add to wishlist</button> </td>
       </tr>
                     
                     )}

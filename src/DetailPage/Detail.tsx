@@ -1,15 +1,25 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useSingleBookQuery } from "../redux/api/bookapi";
 import bookImage from "../images/Fiction-Book-Covers.webp"
 import ReviewDetail from "../Component/ReviewDetail";
+interface IParams {
+  id: string;
 
+
+
+}
 const Detail = () => {
     const { id } = useParams();
+    const navigate = useNavigate()
     const { data, isLoading, } = useSingleBookQuery(id)
     if (isLoading) {
         return <div>Loading...</div>;
     }
-   
+  
+    
+    const handleNavigate = (id: IParams) => {
+         navigate(`/edit/${id}`);
+    }
     return (
         <div className="container mx-auto">
             <div>
@@ -18,14 +28,14 @@ const Detail = () => {
                 <img className="h-80" src={bookImage} alt="" />
             </div>
             <div className="ml-10 mt-14">
-                <h1 className="text-3xl font-bold ml-14">{data.Title}</h1>        <div className="mt-6">
+                <h1 className="text-3xl font-bold ml-14">{data?.Title}</h1>        <div className="mt-6">
 
                
-                <h3 className="text-xl font-bold">Author: {data.Author}</h3>
-                <h5>Genre: { data.Genre}</h5>
+                <h3 className="text-xl font-bold">Author: {data?.Author}</h3>
+                <h5>Genre: { data?.Genre}</h5>
                 <h5>Publication Date: {data.PublicationDate}</h5>
                 <p className="w-96">{data.Description}</p>
-
+<button onClick={()=>handleNavigate(data?._id)}>Edit</button>
                      </div>
             </div>
         </div>

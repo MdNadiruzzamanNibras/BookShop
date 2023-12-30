@@ -7,7 +7,7 @@ import { auth } from "../firebase";
 const Navbar = () => {
   const { user } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
-
+   const { books } = useAppSelector((state) => state.wish);
   const Logout = () => {
     console.log('Logout');
     signOut(auth).then(() => {
@@ -27,6 +27,7 @@ const Navbar = () => {
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
         <Link to='/allBook'>
                 <li className="mx-4">All Book</li>
+                  <li className="mx-4">{ books.length}</li>
               </Link> 
               {!user.email && <Link to='/login'>
                 <li>login</li>
@@ -43,6 +44,7 @@ const Navbar = () => {
               <Link to='/allBook'>
                 <li className="mx-4">All Book</li>
               </Link> 
+              <li className="mx-4">wish{ books.length}</li>
               {!user.email && <Link to='/login'>
                 <li>login</li>
               </Link>}

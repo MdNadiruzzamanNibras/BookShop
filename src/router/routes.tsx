@@ -7,6 +7,7 @@ import Login from "../Login/Login";
 import Registration from "../Login/Registration";
 import AddBook from "../AddNewBook.tsx/AddBook";
 import WishList from "../wishlist/WishList";
+import EditBook from "../Editbook.tsx/EditBook";
 
 
 export const router = createBrowserRouter([
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
   {
     path: "/signup",
     element:<Registration/>
+  },
+  {
+    path: "/edit/:id",
+    element:<EditBook/>
   },
     ]
   },

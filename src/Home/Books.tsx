@@ -3,6 +3,7 @@ import { useGetBooksQuery } from "../redux/api/bookapi";
 import { IBook } from "../type/booktype";
 import { useAppDispatch } from "../redux/hooks";
 import { addToWish } from "../redux/wishlist/wishslice";
+import Loading from "../Loading/Loading";
 
 // import { Link } from "react-router-dom";
 const Books = () => {
@@ -13,7 +14,7 @@ const Books = () => {
     console.log(error);
 
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <Loading/>;
     }
   if (!data || data.length === 0) {
     return isLoading

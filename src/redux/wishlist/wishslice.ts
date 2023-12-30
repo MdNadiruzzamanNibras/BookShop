@@ -15,15 +15,9 @@ const wishSlice = createSlice({
     initialState,
     reducers: {
         addToWish: (state, action: PayloadAction<IBook>) => {
-            const existing = state.books.find(
-              (book) => book._id === action.payload._id
-            );
-      
-            if (existing) {
-              existing.quantity = existing.quantity! + 1;
-            } else {
+            
               state.books.push({ ...action.payload, quantity: 1 });
-            }
+            
       
     
           },

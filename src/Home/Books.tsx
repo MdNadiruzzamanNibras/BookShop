@@ -32,7 +32,7 @@ const Books = () => {
   <table className="table">
     {/* head */}
     <thead>
-      <tr>
+      <tr className="bg-black py-1 text-white text-xl text-center">
         <th></th>
         <th>Title</th>
         <th>Author</th>
@@ -46,7 +46,7 @@ const Books = () => {
             {
               books.slice(0, 10).map((book:IBook, index) =>
               
-               <tr key={book._id}>
+               <tr className="text-lg font-bold text-center" key={book._id}>
                   <th>{index + 1 }</th>
                   <td>{book.Title }</td>
                   <td>{book.Author }</td>

@@ -3,11 +3,16 @@ import { setUser } from "../redux/user/userslice";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
+// import { useEffect } from "react";
+
 
 const Navbar = () => {
   const { user } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
-   const { books } = useAppSelector((state) => state.wish);
+  const { books } = useAppSelector((state) => state.wish);
+//  useEffect(() => {
+//   localStorage.setItem('books', JSON.stringify(books));
+// }, [books]);
   const Logout = () => {
     console.log('Logout');
     signOut(auth).then(() => {

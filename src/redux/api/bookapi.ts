@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const bookapi = createApi({
     reducerPath: 'bookapi',
-    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000" }),
+    baseQuery: fetchBaseQuery({ baseUrl: "https://bookshop-backend-xj0p.onrender.com/" }),
     tagTypes:['reviews'],
     endpoints: (builder) => ({
         getBooks: builder.query({
@@ -39,9 +39,16 @@ export const bookapi = createApi({
             query: (id) => `/review/${id}`,
             providesTags:['reviews']
         }),
+        deleteBook: builder.mutation({
+      query: (id) => ({
+        url: `delete/${id}`,
+        method: 'DELETE',
+      }),
+      
+    }),
 
     }), 
 });
 
 
-export const {useGetBooksQuery, useSingleBookQuery, useGetReviewQuery, useReviewMutation, useBookAddMutation, useBookEditMutation} = bookapi
+export const {useGetBooksQuery, useSingleBookQuery, useGetReviewQuery, useReviewMutation, useBookAddMutation, useBookEditMutation, useDeleteBookMutation} = bookapi

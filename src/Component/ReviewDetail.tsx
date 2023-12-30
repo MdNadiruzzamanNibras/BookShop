@@ -33,22 +33,22 @@ console.log(id);
     }
     return (
           <div className="container mx-auto mt-5">
-        <div className="lg:ml-72">
+        <div className="ml-0 lg:ml-[350px]">
           <form className="flex  items-center" onSubmit={handleSubmit}>
         <input
-          className=" w-[500px] border-2 border-black"
+          className=" w-[500px] rounded-l-full py-2 border-2 border-black"
           onChange={handleChange}
           value={inputValue}
         />
         <button
           type="submit"
-          className="rounded-full  w-10 p-2 text-xl"
+          className="rounded-r-full bg-black text-white capitalize py-2  px-4 text-xl"
         >
-         submit
+         add review
         </button>
       </form>
       </div>
-      <div className="mt-10">
+      <div className="mt-6">
         {data?.reviews?.map((r:{ review: string }, index:number) => (
           <div key={index} className="flex gap-3 items-center mb-5">
             <div className="avatar">
@@ -56,8 +56,8 @@ console.log(id);
       
     </div>
   </div>
-            <div className="lg:ml-72">
-               <p>{r?.review}</p>
+            <div className="lg:ml-80">
+               <p className="text-2xl font-semibold text-gray-600">{r?.review}</p>
            </div>
           </div>
         ))}

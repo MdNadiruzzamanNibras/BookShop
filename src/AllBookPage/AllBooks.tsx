@@ -24,8 +24,8 @@ if (!data || data.length === 0) {
            <div className="overflow-x-auto">
   <table className="table table-xs">
     <thead>
-      <tr>
-        <th>Index</th> 
+      <tr className="bg-black py-1 mt-10 text-white text-xl text-center">
+        <th>NO</th> 
         <th>Title</th> 
         <th>Author</th> 
         <th>Genre</th> 
@@ -36,7 +36,7 @@ if (!data || data.length === 0) {
     </thead> 
                 <tbody>
                     {data?.map((book: IBook, index:number)=>
-                    <tr key={book._id}>
+                    <tr className="text-lg font-bold text-center" key={book._id}>
                         <th>{ index+1}</th> 
                             <td>{ book.Title}</td> 
                             <td>{ book.Author}</td> 

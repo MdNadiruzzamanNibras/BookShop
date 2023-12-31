@@ -5,23 +5,30 @@ import Loading from "../Loading/Loading"
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { addToWish } from "../redux/wishlist/wishslice";
 
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent,  useState } from "react";
 import { setBooks, setGenre, setPublicationYear, setSearchQuery } from "../redux/filterdata/filterSlice";
 
 const AllBooks = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const dispatch = useAppDispatch()
-    const { data, isLoading,  } = useGetBooksQuery(undefined);
+  const { data, isLoading, } = useGetBooksQuery(undefined);
+  console.log(isLoading,"ko");
   const [searchText, setSearchText] = useState('');
    const { publicationYear, genre, searchQuery } = useAppSelector((state) => state.filter);
   const books = useAppSelector((state) => state.filter.books);
-  useEffect(() => {
-      dispatch(setBooks(data));
-        }
-    , [data, dispatch]);
+  // useEffect(() => {
+  //   data?.length &&  dispatch(setBooks(data));
+  //       }
+  //   , [data, dispatch]); 
+  if (isLoading) {
+        return <Loading/>
+  }
+  if (data?.length>0) {
+    dispatch(setBooks(data))
+  }
   const handleYearChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const selectedYear = parseInt(e.target.value);
-    console.log(typeof selectedYear,"ls");
+    
     dispatch(setPublicationYear(selectedYear));
   };
 
@@ -40,7 +47,7 @@ const AllBooks = () => {
   
 
   if (publicationYear) {
-    filteredBooks = filteredBooks.filter((book) => book.PublicationDate = publicationYear);
+    filteredBooks = filteredBooks.filter((book) => book.PublicationDate === publicationYear);
   }
 
   if (genre) {
@@ -53,11 +60,9 @@ const AllBooks = () => {
     );
   }
   console.log(publicationYear);
-  if (isLoading) {
-        return <Loading/>
-  }
+  
 if (!filteredBooks || filteredBooks.length === 0) {
-        return <div>No books available. The sever is crash</div>;
+        return <div>No books available</div>;
     }
    
     return (
@@ -123,7 +128,7 @@ if (!filteredBooks || filteredBooks.length === 0) {
     </thead> 
                 <tbody>
                     {filteredBooks&& filteredBooks?.map((book: IBook, index:number)=>
-                    <tr className="lg:text-lg font-bold text-center" key={book._id}>
+                    <tr className="lg:text-lg font-bold text-center" key={book?._id}>
                         <th>{ index+1}</th> 
                             <td>{ book?.Title}</td> 
                             <td>{ book?.Author}</td> 

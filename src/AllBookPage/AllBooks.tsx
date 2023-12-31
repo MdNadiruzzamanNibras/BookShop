@@ -20,6 +20,40 @@ if (!data || data.length === 0) {
     return (
       <div className="container mx-auto">
         <div>
+          <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Genre</span> 
+              </label> 
+              <select name="genre" required id="genre" className="input input-bordered focus:outline-none w-full p-2 rounded my-2 text-black"  >
+                <option >Select Genre</option>
+              <option value="Love">Love</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Science Fiction">Science Fiction</option>
+              <option value="Fantasy">Fantasy</option>
+            </select>
+                   
+          </div>
+          
+           <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Publication Year</span> 
+              </label>
+              <select name="year" className="input input-bordered focus:outline-none w-full p-2 rounded my-2 text-black" >
+              <option >Select Year</option>
+              <option value="2018">2018</option>
+              <option value="2012">2012</option>
+              <option value="2023">2023</option>
+              <option value="2021">2021</option>
+              <option value="2019">2019</option>
+            </select>
+                    
+          </div>
+          <div>
+            <input type="text" />
+          </div>
+        </div>
+        <div>
          
            <div className="overflow-x-auto">
   <table className="table table-xs">

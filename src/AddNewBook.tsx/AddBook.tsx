@@ -94,11 +94,12 @@ const handleYearChange = (e: ChangeEvent<HTMLSelectElement>) => {
               </label>
               <select name="year" className="input input-bordered focus:outline-none w-full p-2 rounded my-2 text-black" onChange={handleYearChange}>
               <option >Select Year</option>
-              <option value="2018">2018</option>
-              <option value="2012">2012</option>
               <option value="2023">2023</option>
               <option value="2021">2021</option>
+              <option value="2020">2020</option>
               <option value="2019">2019</option>
+               <option value="2018">2018</option>
+              <option value="2012">2012</option>
             </select>
                     
                 </div>

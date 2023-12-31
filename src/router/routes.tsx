@@ -8,6 +8,7 @@ import Registration from "../Login/Registration";
 import AddBook from "../AddNewBook.tsx/AddBook";
 import WishList from "../wishlist/WishList";
 import EditBook from "../Editbook.tsx/EditBook";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -29,11 +30,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/AddBook",
-        element:<AddBook/>
+        element:<PrivateRoute><AddBook/> </PrivateRoute> 
       },
       {
         path: "/wish",
-        element:<WishList/>
+        element: <PrivateRoute><WishList/></PrivateRoute>
       },
       {
     path: "/login",

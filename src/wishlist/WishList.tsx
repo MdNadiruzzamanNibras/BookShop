@@ -18,7 +18,7 @@ const WishList = () => {
         <th>Author</th>
         <th>Genre</th>
         <th>Publication Date</th>
-        <th></th>
+        <th>Quantity</th>
       </tr>
     </thead>
     <tbody>
@@ -28,10 +28,11 @@ const WishList = () => {
               
                <tr className="lg:text-lg font-bold text-center" key={book._id}>
                   <th>{index + 1 }</th>
-                  <td>{book.Title }</td>
-                  <td>{book.Author }</td>
-                  <td>{book.Genre }</td>
-                  <td>{book.PublicationDate}</td>
+                  <td>{book?.Title }</td>
+                  <td>{book?.Author }</td>
+                  <td>{book?.Genre }</td>
+                  <td>{book?.PublicationDate}</td>
+                  <td>{book?.quantity}</td>
                   
         
       </tr>

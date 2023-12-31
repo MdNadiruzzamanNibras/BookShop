@@ -122,7 +122,7 @@ if (!filteredBooks || filteredBooks.length === 0) {
       </tr>
     </thead> 
                 <tbody>
-                    {filteredBooks?.map((book: IBook, index:number)=>
+                    {filteredBooks&& filteredBooks?.map((book: IBook, index:number)=>
                     <tr className="lg:text-lg font-bold text-center" key={book._id}>
                         <th>{ index+1}</th> 
                             <td>{ book?.Title}</td> 

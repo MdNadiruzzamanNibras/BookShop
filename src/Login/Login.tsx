@@ -2,11 +2,13 @@
 import { useForm, SubmitHandler } from "react-hook-form"
 import { useAppDispatch } from "../redux/hooks";
 import { loginUser } from "../redux/user/userslice";
+import { useNavigate } from "react-router";
 interface LoginInput {
   email: string;
   password: string;
 }
 const Login = () => {
+  const navigate = useNavigate()
      const {
     register,
     handleSubmit,
@@ -14,8 +16,10 @@ const Login = () => {
     formState: { errors },
     } = useForm<LoginInput>()
     const dispatch = useAppDispatch()
-    const onSubmit: SubmitHandler<LoginInput> = (data: LoginInput) => 
-    dispatch(loginUser({email:data.email, passward:data.password}))
+    const onSubmit: SubmitHandler<LoginInput> = (data: LoginInput) => {
+      dispatch(loginUser({ email: data.email, passward: data.password }))
+      navigate("/")
+    }
     return (
         <div className="container mx-auto">
             <div className="md:flex md:justify-center  md:items-center h-screen ">

@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form"
 import { createUser } from "../redux/user/userslice";
 import { useAppDispatch } from "../redux/hooks";
+import { useNavigate } from "react-router";
 interface RegistrationInput {
     name?: string;
   email: string;
@@ -8,6 +9,7 @@ interface RegistrationInput {
 }
 
 const Registration = () => {
+  const navigate = useNavigate()
     const {
     register,
     handleSubmit,
@@ -17,7 +19,9 @@ const Registration = () => {
     const dispatch = useAppDispatch()
     const onSubmit: SubmitHandler<RegistrationInput> = (data:RegistrationInput) => {
         
-    dispatch(createUser({email: data.email, passward: data.password})) }
+      dispatch(createUser({ email: data.email, passward: data.password }))
+    navigate("/")
+    }
     return (
         <div className="container mx-auto">
             <div className="md:flex md:justify-center md:items-center h-screen ">

@@ -8,7 +8,7 @@ import Loading from "../Loading/Loading";
 // import { Link } from "react-router-dom";
 const Books = () => {
     const { data, isLoading, error } = useGetBooksQuery(undefined);
-
+  console.log(data);
 
     console.log(isLoading);
     console.log(error);
@@ -33,7 +33,7 @@ const Books = () => {
   <table className="table">
     {/* head */}
     <thead>
-      <tr className="bg-black py-1 text-white text-xl text-center">
+      <tr className="bg-black py-1 text-white lg:text-xl text-center">
         <th></th>
         <th>Title</th>
         <th>Author</th>
@@ -47,7 +47,7 @@ const Books = () => {
             {
               books.slice(0, 10).map((book:IBook, index) =>
               
-               <tr className="text-lg font-bold text-center" key={book._id}>
+               <tr className="lg:text-lg font-bold text-center" key={book._id}>
                   <th>{index + 1 }</th>
                   <td>{book.Title }</td>
                   <td>{book.Author }</td>
@@ -55,9 +55,9 @@ const Books = () => {
                   <td>{book.PublicationDate}</td>
                    <td>
                   <Link to={`/book/${book._id}`} >
-                     <button className="btn btn-primary">Details</button>
+                     <button className="bg-green-400 text-white text-base px-4 py-1 rounded-full">Details</button>
                     </Link>
-                    <button onClick={()=>dispatch(addToWish(book))} className="text-xs ml-2 px-2 py-1 rounded-full">add to wishlist</button>
+                    <button onClick={()=>dispatch(addToWish(book))} className="bg-black ml-4 text-white text-base px-4 py-1 rounded-full">add to wishlist</button>
                     </td>
         
       </tr>

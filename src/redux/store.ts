@@ -2,10 +2,12 @@ import { configureStore } from '@reduxjs/toolkit'
 import {bookapi} from "./api/bookapi"
 import userReducer from "./user/userslice"
 import wishReducer from "./wishlist/wishslice"
+import filterReducer from './filterdata/filterSlice'
 export const store = configureStore({
   reducer: {
     user: userReducer,
     wish: wishReducer,
+    filter:filterReducer,
     [bookapi.reducerPath]:bookapi.reducer
    
   },

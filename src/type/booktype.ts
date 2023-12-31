@@ -4,7 +4,7 @@ export interface IBook{
     Genre: string,
     Title: string,
     Description?: string,
-    PublicationDate: string,
+    PublicationDate: number| string,
     quantity?:number,
      authorEmail?:string
 

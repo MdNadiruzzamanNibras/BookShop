@@ -42,7 +42,7 @@ const Navbar = () => {
                 <li className="mx-4">Add Book</li>
                   
                 </Link> 
-                <li className="mx-4">{ books.length}</li>
+                <li className="mx-4">Wishlist{ books.length}</li>
               {!user.email && <Link to='/login'>
                 <li>login</li>
               </Link>}
@@ -63,16 +63,24 @@ const Navbar = () => {
                 <li className="mx-4">All Book</li>
                   
               </Link> 
-              <li className="mx-4">wish{ books.length}</li>
+              <Link to='/wish'>
+               <li className="mx-4">Wishlist <span className="ml-4">{ books.length}</span></li></Link>
         <Link to='/AddBook'>
                 <li className="mx-4">Add Book</li>
                   
                 </Link> 
                
               
-              {!user.email && <Link to='/login'>
-                <li>login</li>
-              </Link>}
+              {!user.email &&
+                <Link to='/login'>
+                <li className="mx-4">login</li>
+                </Link>
+              }
+              {!user.email &&
+                <Link to='/signup'>
+                <li className="mx-4">Sign UP</li>
+                </Link>
+              }
               {
                 user.email &&  <li onClick={Logout}>logout</li>
               }
